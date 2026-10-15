@@ -62,7 +62,7 @@
 | الطبقة | الاختيار | السبب |
 |---|---|---|
 | Backend | Laravel 12 | موجود |
-| الواجهة | **Livewire 3 + Alpine.js 3 + Blade** | تفاعلية كاملة من غير SPA، أسرع تسليم، أنسب لفريق Laravel |
+| الواجهة | **Livewire 4 + Alpine.js 3 + Blade** | تفاعلية كاملة من غير SPA، أسرع تسليم، أنسب لفريق Laravel |
 | CSS | **Tailwind CSS v4** (CSS-first config عبر `@theme`) | موجود |
 | الموشن | **Motion One (`motion`)** + `@formkit/auto-animate` + CSS transitions | خفيف، يشتغل مع Alpine/Livewire من غير React |
 | الرسوم البيانية | **ApexCharts** (عبر Alpine wrapper) | أجمل رسوم جاهزة + دعم RTL + theming |
