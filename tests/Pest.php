@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 /*
@@ -44,7 +45,26 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+/**
+ * Insert a category straight through the query builder.
+ *
+ * The Eloquent models arrive in P1.4, so the schema phases are verified
+ * against the database itself.
+ */
+function insertCategory(array $attributes = []): int
 {
-    // ..
+    return DB::table('expense_categories')->insertGetId(array_merge([
+        'name_ar' => 'الكهرباء',
+        'name_en' => 'Electricity',
+        'slug' => 'category-'.uniqid(),
+    ], $attributes));
+}
+
+function insertExpense(array $attributes = []): int
+{
+    return DB::table('expenses')->insertGetId(array_merge([
+        'expense_category_id' => $attributes['expense_category_id'] ?? insertCategory(),
+        'amount' => 1250.00,
+        'spent_at' => '2026-10-01',
+    ], $attributes));
 }

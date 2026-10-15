@@ -4,19 +4,6 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-/**
- * Models arrive in P1.4, so this phase is verified straight against the
- * schema and the database's own constraints.
- */
-function insertCategory(array $attributes = []): int
-{
-    return DB::table('expense_categories')->insertGetId(array_merge([
-        'name_ar' => 'الكهرباء',
-        'name_en' => 'Electricity',
-        'slug' => 'electricity-'.uniqid(),
-    ], $attributes));
-}
-
 test('the table exists with every documented column', function () {
     expect(Schema::hasTable('expense_categories'))->toBeTrue();
 
